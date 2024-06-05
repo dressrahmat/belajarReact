@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import {Home, Splashscreen, Pesanan, Whistlist, Profile} from "../pages";
+import { BottomNavigator } from "../components/molecules";
 
 
 const Stack = createStackNavigator();
@@ -10,11 +11,11 @@ const Tab = createBottomTabNavigator();
 
 const MainApp = () => {
     return (
-        <Tab.Navigator>
-            <Tab.Screen name="Home" component={Home} />
-            <Tab.Screen name="Pesanan" component={Pesanan} />
-            <Tab.Screen name="Whistlist" component={Whistlist} />
-            <Tab.Screen name="Profile" component={Profile} />
+        <Tab.Navigator  tabBar={props => <BottomNavigator {...props} />}>
+            <Tab.Screen name="Home" component={Home} options={{headerShown: false}} />
+            <Tab.Screen name="Pesanan" component={Pesanan} options={{headerShown: false}} />
+            <Tab.Screen name="Whistlist" component={Whistlist} options={{headerShown: false}} />
+            <Tab.Screen name="Profile" component={Profile} options={{headerShown: false}} />
         </Tab.Navigator>
     )
 }
